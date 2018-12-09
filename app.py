@@ -1,6 +1,11 @@
 # þurfum að setja pymysql upp í pyCharm (sama rútína og bottle-beaker)
 import pymysql
 from bottle import route, request, template, run, static_file
+from sys import argv
+import bottle
+from bottle import *
+bottle.debug(True)
+
 
 @route('/')
 def index():
@@ -77,4 +82,4 @@ def doinn():
 def server_static(filepath):
     return static_file(filepath, root='static/')
 
-run()
+bottle.run(host='0.0.0.0', port=argv[1])
